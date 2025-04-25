@@ -2,6 +2,9 @@ spring:
   application:
     name: "dsm-practice"
 
+  main:
+    allow-bean-definition-overriding: true
+
   jpa:
     database: mysql
     hibernate:
@@ -31,6 +34,12 @@ spring:
   thymeleaf:
     cache: false
 
+  jwt:
+    secretKey: ${SECRET_KEY}
+    accessExp: ${ACCESS_EXP}
+    refreshExp: ${REFRESH_EXP}
+    header: ${HEADER}
+    prefix: ${PREFIX}
 
 server:
   port: ${RUN_PORT}
@@ -39,11 +48,6 @@ server:
     include-binding-errors: never
     include-exception: off
     include-message: never
-
-security:
-  key: ${SECURITY_KEY}
-  access: 1800
-  refresh: 1209600
 
 springdoc:
   api-docs:
