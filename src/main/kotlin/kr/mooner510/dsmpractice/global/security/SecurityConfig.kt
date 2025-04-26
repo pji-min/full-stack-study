@@ -32,6 +32,7 @@ class SecurityConfig(
             .authorizeRequests {
                 it
                     .requestMatchers("/auth/**").permitAll()
+                    .requestMatchers("/post/**").authenticated()
                     .anyRequest().authenticated()
             }
             .addFilterBefore(JwtFilter(jwtProvider), UsernamePasswordAuthenticationFilter::class.java)
